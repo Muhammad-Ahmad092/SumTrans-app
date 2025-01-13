@@ -1,20 +1,48 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { useFonts } from 'expo-font';
+import AppLoading from 'expo-app-loading';
 
-export default function App() {
+import OpeningPage from './Frontend/OpeningPage';
+import WelcomePage from './Frontend/welcomePage';
+import HomePage from './Frontend/HomePage';
+
+const Stack = createStackNavigator();
+
+const App = () => {
+
+  const [fontsLoaded] = useFonts({
+    'Charm-Bold': require('./assets/fonts/Charm-Bold.ttf'),
+    'Charm-Regular': require('./assets/fonts/Charm-Regular.ttf'),
+  });
+
+  // Show AppLoading while fonts are being loaded
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="OpeningPage">
+        <Stack.Screen 
+          name="OpeningPage" 
+          component={OpeningPage} 
+          options={{ headerShown: false }}
+        />
+       <Stack.Screen
+        name="WelcomePage"
+        component={WelcomePage}
+        options={{ headerShown: false }}
+        />
+        <Stack.Screen
+        name="HomePage"
+        component={HomePage}
+        options={{ headerShown: false }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
