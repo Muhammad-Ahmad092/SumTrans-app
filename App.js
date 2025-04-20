@@ -7,6 +7,8 @@ import AppLoading from 'expo-app-loading';
 import OpeningPage from './Frontend/OpeningPage';
 import WelcomePage from './Frontend/welcomePage';
 import HomePage from './Frontend/HomePage';
+import TranslatePage from './Frontend/TranslatePage';
+import SummaizePage from './Frontend/SummarizePage';
 
 const Stack = createStackNavigator();
 
@@ -38,6 +40,16 @@ const App = () => {
         <Stack.Screen
         name="HomePage"
         component={HomePage}
+        options={{ headerShown: false }}
+        />
+        <Stack.Screen
+        name="TranslatePage"
+        component={TranslatePage}
+        options={{ headerShown: false }}
+        />
+        <Stack.Screen
+        name="SummarizePage"
+        component={SummaizePage}
         options={{ headerShown: false }}
         />
       </Stack.Navigator>

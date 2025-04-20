@@ -10,14 +10,14 @@ const OpeningPage = () => {
     // Start fade in animation
     Animated.timing(fadeAnim, {
       toValue: 1,
-      duration: 1000,
+      duration: 2000, // 2 seconds for fade-in
       useNativeDriver: true,
     }).start();
 
-    // Navigate after 4 seconds
+    // Navigate after 10 seconds
     const timer = setTimeout(() => {
       navigation.replace('WelcomePage');
-    }, 400);
+    }, 6000); // 10 seconds
 
     return () => clearTimeout(timer);
   }, []);
@@ -30,10 +30,6 @@ const OpeningPage = () => {
           style={styles.logo}
           resizeMode="contain"
         />
-        <Text style={styles.title}>
-          <Text style={styles.titlePrefix}>Sum</Text>
-          Trans
-        </Text>
         <Text style={styles.paragraph}>
           Summarize your message and Content. Translate your message into 90 Languages.
         </Text>
@@ -45,7 +41,7 @@ const OpeningPage = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#white',
+    backgroundColor: '#ffffff',
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
@@ -58,21 +54,13 @@ const styles = StyleSheet.create({
     height: 200,
     marginBottom: 20,
   },
-  title: {
-    fontSize: 40,
-    marginBottom: 8,
-    fontFamily: 'Charm-Bold', // Apply Solitreo font
-  },
-  titlePrefix: {
-    color: '#1791c8',
-  },
   paragraph: {
     fontSize: 16,
     color: '#666',
     textAlign: 'center',
     lineHeight: 24,
     maxWidth: 250,
-    fontFamily : 'Charm-Regular',
+    fontFamily: 'Charm-Regular',
   },
 });
 
