@@ -19,10 +19,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/logo.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.muhammadahmad92.SumTrans"
     },
     "web": {
       "favicon": "./assets/t.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "da2b6697-adf7-400a-ac2d-5717900d2010"
+      }
     }
   }
 }
